@@ -1,0 +1,20 @@
+<h1>留言板</h1>
+
+<%=link_to "新增", new_msg_path%>
+<table style="border: #ccc 2px solid" rules="all">
+	<tr>
+		<th>內容</th>
+		<th>新增時間</th>
+		<th>更新時間</th>
+		<th colspan="2">選項</th>
+	</tr>
+<% @C.each do |c|%>
+	<tr>
+		<td><%=c.content%></td>
+		<td><%=c.created_at%></td>
+		<td><%=c.updated_at%></td>
+		<td style="width: 75px;text-align:center"><%= link_to "編輯", edit_msg_path(c) %></td>
+		<td style="width: 75px;text-align:center"><%=link_to "刪除", c, method: :delete%></td>
+	</tr>
+<%end%>
+</table>
